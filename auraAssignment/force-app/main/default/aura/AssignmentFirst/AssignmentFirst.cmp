@@ -1,0 +1,31 @@
+<aura:component controller="AssignmentFirst" 
+                implements="flexipage:availableForAllPageTypes,force:hasRecordId"
+                access="global">
+    <aura:attribute name="contactWrappers" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:card title="Contact Details">
+        <table class="slds-table slds-table_bordered slds-table_striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Billing City</th>
+                    <th>Billing State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.contactWrappers}" var="wrapper">
+                    <tr>
+                        <td>{!wrapper.contact.Name}</td>
+                        <td>{!wrapper.contact.Email}</td>
+                        <td>{!wrapper.contact.Phone}</td>
+                        <td>{!wrapper.account.BillingCity}</td>
+                        <td>{!wrapper.account.BillingState}</td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+    </lightning:card>
+</aura:component>
